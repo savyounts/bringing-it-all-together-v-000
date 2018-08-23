@@ -54,7 +54,7 @@ class Dog
   end
 
  def self.create(row)
-   dog = self.new(id: row[0], name:row[1], breed: row[2])
+   dog = self.new(row)
    dog.save
    dog
  end
@@ -70,7 +70,7 @@ class Dog
    if !dog.empty?
      dog = self.new_from_db(dog[0])
    else
-     dog = self.create(id: dog[0], name:dog[1], breed: dob[2])
+     dog = self.create(name, breed)
    end
    dog
  end
